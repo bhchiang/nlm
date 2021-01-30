@@ -112,7 +112,7 @@ if __name__ == "__main__":
                         1)(img)
 
     start = time.time()
-    denoised = _denoise(noisy)
+    denoised = _denoise(noisy).block_until_ready()
     print(f"Denoising took {time.time() - start} seconds")
     psnr = _psnr(denoised, clean)
     print(f"PSNR = {psnr}, saving to images/denoised.png")
