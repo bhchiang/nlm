@@ -4,8 +4,10 @@ Vectorized and differentiable implementation of non-local means by [Buades et. a
 
 Approximately two orders of magnitude speed up with JIT compilation + GPU acceleration compared to a raw NumPy implementation.
 
-# Example
+## Example
 
 ```
 python nlm.py
 ```
+
+![](images/comparison.png)

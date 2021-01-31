@@ -1,6 +1,8 @@
 from IPython import embed
 import time
 
+import matplotlib.pyplot as plt
+
 import jax
 from jax import lax, numpy as jnp
 
@@ -118,6 +120,17 @@ if __name__ == "__main__":
     print(f"PSNR = {psnr}, saving to images/denoised.png")
     io.imsave("images/denoised.png", denoised)
 
-    # Feel free to differentiate wrt any of the inputs.
+    # Plot results
+    fig, ((ax1, ax2, ax3)) = plt.subplots(1, 3, figsize=(9, 15))
+    ax1.set_title("Original")
+    ax1.imshow(clean)
+    ax2.set_title("Noisy")
+    ax2.imshow(noisy)
+    ax3.set_title("Denoised")
+    ax3.imshow(denoised)
+    plt.setp(plt.gcf().get_axes(), xticks=[], yticks=[])
+    fig.savefig('images/comparison.png', bbox_inches="tight")
+
+    # Feel free to differentiate wrt any of the inputs
     print(jax.grad(lambda x1, x2: _rms(_denoise(x1), x2))(noisy, clean))
     embed()
