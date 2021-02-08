@@ -1,4 +1,4 @@
-# nlm-jax
+# nlm
 
 Vectorized and differentiable implementation of non-local means by [Buades et. al](https://ieeexplore.ieee.org/document/1467423) for image denoising in JAX for EE367.
 
